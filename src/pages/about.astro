@@ -1,0 +1,103 @@
+---
+import { Image } from "astro:assets";
+import BlogPostLayout from "../layouts/BlogPostLayout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import CallToAction from "../components/CallToAction.astro";
+import { pageTag, pageDescription, aboutTdk } from "../data/content";
+import myPortrait from "../assets/portrait.jpg";
+---
+
+<BlogPostLayout
+	title={aboutTdk.title || ""}
+	description={aboutTdk.description || ""}
+	keywords={aboutTdk.keywords || ""}
+>
+	<div class="post">
+		<main class="post-wrapper about">
+			<SectionHeader
+				tag={pageTag.about}
+				description={pageDescription.about}
+			>
+				About Me
+			</SectionHeader>
+			<section class="border-top" style="padding-top: 2rem;">
+				<div class="content">
+					<div>
+						<Image
+							src={myPortrait}
+							alt="portrait"
+							width="88"
+							height="88"
+							class="portrait"
+						/>
+						<p>
+							I'm <strong style="font-size:1.2em"
+								>Suraj Thakur</strong
+							>, a software engineer passionate about building
+							scalable web applications, backend systems, and
+							AI-powered products. I enjoy turning ideas into
+							clean, fast, and practical software.
+						</p>
+						<p style="margin-bottom:26px;">
+							I'm currently focused on improving my backend
+							engineering skills while continuing to build
+							full-stack applications using Next.js and
+							TypeScript. I enjoy solving real-world problems
+							through software.
+						</p>
+					</div>
+				</div>
+				<section>
+					<h3 class="post-title">Outside Work</h3>
+					<div class="content">
+						<p>
+							Outside of coding, I enjoy learning new
+							technologies, reading about software architecture,
+							listening music, exploring Linux, and writing
+							about what I learn. I'm always looking for
+							opportunities to improve both my technical and
+							problem-solving skills.
+						</p>
+						<p style="margin-top:24px;">
+							<CallToAction
+								target="_self"
+								href="mailto:suraj.here@outlook.com"
+							>
+								Contact Me
+							</CallToAction>
+						</p>
+					</div>
+				</section>
+				<p></p>
+				<p></p>
+			</section>
+		</main>
+	</div>
+
+	<style>
+		.about {
+			display: flex;
+			flex-direction: column;
+			margin: 0 auto;
+		}
+		p {
+			margin: 0.75rem 0;
+		}
+		figure {
+			margin: 2rem 0;
+		}
+		img {
+			max-width: 100%;
+		}
+		.portrait {
+			border-radius: 100px;
+			margin: 12px 0 12px;
+			overflow: hidden;
+			text-align: left;
+		}
+		a,
+		a:link {
+			color: var(--color-blue);
+		}
+	</style>
+</BlogPostLayout>
