@@ -1,11 +1,7 @@
 ---
 import Filter from '../components/Filter.astro';
-// 引入 JSON 文件并加载数据
-// const cardJsonString = '/assets/data/card.json';
-// const cardData = JSON.parse(cardJsonString);
-// 使用 JSON 数据
-// import cardData from '../components/card.json';
 import cardData from '../data/home.json';
+
 const cards = [];
 for (const [index,item] of cardData.entries()) {
   const card = {
@@ -68,26 +64,26 @@ const count = cards.length;
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-      // 检查是否存在带有类名 '.card-figure__video' 的元素
+      // Check whether there are any elements with the class .card-figure__video.
       const videos = document.querySelectorAll('.card-figure__video') as NodeListOf<HTMLVideoElement>;;
 
-      // 如果存在视频元素，则执行相关操作
+      // if video elements exist, perform the following operations.
       if (videos.length > 0) {
           videos.forEach(video => {
-              // 设置自动播放
+              // Enable autoplay.
               video.autoplay = true;
-              // 禁止声音
+              // Mute the audio.
               video.muted = true;
-              // 循环播放
+              // Loop the video continuously.
               video.loop = true;
-              // 隐藏控制栏（包括进度条、播放/停止按钮和菜单栏）
+              // Hide the video controls (including the progress bar, play/pause button, and menu).
               video.controls = false;
-              // 设置 playsinline 属性，以确保在移动设备上也能自动播放
+              // Set the playsinline attribute to ensure the video can autoplay on mobile devices.
               video.setAttribute('playsinline', '');
-              // 为了确保视频开始播放，我们可以添加一个 play() 调用
+              // To make sure the video starts playing, we can call play().
               video.play().catch(e => {
                   console.log("Auto-play was prevented:", e);
-                  // 一些浏览器可能会阻止自动播放，特别是在没有用户交互的情况下
+                  // Some browsers may block autoplay, especially if the user hasn't interacted with the page yet.
               });
           });
       } else {
