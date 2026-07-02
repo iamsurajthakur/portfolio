@@ -107,37 +107,60 @@
 		display: none!important;
 	}
 }
-.train-switch button{
-	display: block;
-	background-color: unset;
-	border-radius: 36px;
-	border:1px solid var(--train-color);
-	background-color: rgba(0,0,0,.3);
-	color: var(--color-100);
-	font-size:12px;
-	line-height: 22px;
-	padding:0;
-	width:75px;
-	text-align: center;
-	cursor: pointer;
-	transition: background 0.2s ease-in-out;
-	background-color: var(--train-color);
-	border-color: var(--train-color);
-    box-shadow: 0 0 12px 6px rgba(var(--train-color-rgb), .3);
-	transition:all 0.25s ease-in-out;
-}
-.train-switch button:hover{
-	color: var(--color-900);
-	background-color: var(--train-color);
-	border-color: var(--train-color);
-    box-shadow: 0 0 12px 6px rgba(var(--train-color-rgb), .75);
-}
-.train-switch button span{
-	padding-top:3px;
-	display: inline-block;
-}
 .train-switch button {
-   display: none;
+    display: none;
+
+    width: 72px;
+    height: 34px;
+
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.04);
+    backdrop-filter: blur(10px);
+
+    color: rgba(255,255,255,.85);
+
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        background-color .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        box-shadow .25s ease;
+}
+
+.train-switch button span {
+    display: inline-block;
+    transition: transform .25s ease;
+}
+
+.train-switch button:hover {
+    transform: translateY(-2px);
+
+    color: white;
+
+    border-color: rgba(var(--train-color-rgb), .45);
+
+    background: rgba(var(--train-color-rgb), .12);
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,.18),
+        0 0 0 1px rgba(var(--train-color-rgb), .15);
+}
+
+.train-switch button:hover span {
+    transform: scale(1.05);
+}
+
+.train-switch button:active {
+    transform: translateY(0) scale(.96);
 }
 
 .train-yellow{
@@ -155,6 +178,21 @@
 .train-white{
 	--train-color:#dedede;
 	--train-color-rgb:200,200,200;
+}
+
+.train-switch button {
+    animation: fadeUp .35s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .animated {
 	animation-duration: .75s; 
