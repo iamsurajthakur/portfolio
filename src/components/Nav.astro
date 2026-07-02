@@ -5,7 +5,6 @@ import Effect from "../effects/Effect.astro";
 import {nav} from '../data/content';
 import EffectSwitch from "../effects/EffectSwitch.astro";
 import NavMobile from "../components/NavMobile.astro";
-import GitHubStars from './GitHubStars.astro';
 ---
 
 <nav>
@@ -15,7 +14,7 @@ import GitHubStars from './GitHubStars.astro';
 				<a href="/" class="author">
 					<figure class="avatar">
 						<img class="avatar__img"
-							src={nav.avatar} alt=""
+							src={nav.avatar} alt="logo"
 							draggable="false">
 					</figure>
 				</a>
@@ -74,7 +73,7 @@ import GitHubStars from './GitHubStars.astro';
 			};
 
 			// Toggle menu visibility when the menu button is clicked.
-			btn.addEventListener('click', () => setExpanded(menu.hidden));
+			btn.addEventListener('click', () => setExpanded(!menu.hidden));
 
 			// Hide menu button for large screens.
 			const handleViewports = (e: MediaQueryList | MediaQueryListEvent) => {

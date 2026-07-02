@@ -16,7 +16,7 @@ interface Nav {
 
 // 定义导航项
 export const nav: Nav = {
-	avatar:'/assets/author.png',
+	avatar:'/assets/author-image.png',
     items: [
         { label: 'Home', href: '/', target: '_self' },
         { label: 'Projects', href: '/project', target: '_self' },
@@ -131,7 +131,7 @@ interface PageTag {
 	project: string
 }
 export const pageTag: PageTag = {
-	index: 'PORTFOLIO',
+	index: 'SURAJ THAKUR',
 	about: 'ABOUT',
 	blog: 'BLOG',
 	project: 'PROJECT'
