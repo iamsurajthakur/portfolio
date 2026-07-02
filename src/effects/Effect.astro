@@ -1,34 +1,34 @@
 <div class="train-1">
 	<div class="effects train-icons">
 		<div class="effects__img">
-			<div class="effects__img-inner" style="background-image:url(/assets/effects/3dicons/bezier.png)"></div>
+			<div class="effects__img-inner" style="background-image:url(/assets/effects/code/github.png)"></div>
 		</div>
 		<div class="effects__img">
-			<div class="effects__img-inner" style="background-image:url(/assets/effects/3dicons/game.png)"></div>
+			<div class="effects__img-inner" style="background-image:url(/assets/effects/code/go.png)"></div>
 		</div>
 		<div class="effects__img">
-			<div class="effects__img-inner" style="background-image:url(/assets/effects/3dicons/hourglass.png)"></div>
+			<div class="effects__img-inner" style="background-image:url(/assets/effects/code/js.png)"></div>
 		</div>
 		<div class="effects__img">
-			<div class="effects__img-inner" style="background-image:url(/assets/effects/3dicons/image.png)"></div>
+			<div class="effects__img-inner" style="background-image:url(/assets/effects/code/vs.png)"></div>
 		</div>
 		<div class="effects__img">
-			<div class="effects__img-inner" style="background-image:url(/assets/effects/3dicons/rocket.png)"></div>
+			<div class="effects__img-inner" style="background-image:url(/assets/effects/code/nextjs.png)"></div>
 		</div>
 		<div class="effects__img">
-			<div class="effects__img-inner" style="background-image:url(/assets/effects/3dicons/compass.png)"></div>
+			<div class="effects__img-inner" style="background-image:url(/assets/effects/code/node.png)"></div>
 		</div>
 		<div class="effects__img">
-			<div class="effects__img-inner" style="background-image:url(/assets/effects/3dicons/battery.png)"></div>
+			<div class="effects__img-inner" style="background-image:url(/assets/effects/code/react.png)"></div>
 		</div>
 		<div class="effects__img">
-			<div class="effects__img-inner" style="background-image:url(/assets/effects/3dicons/lamp.png)"></div>
+			<div class="effects__img-inner" style="background-image:url(/assets/effects/code/rust.png)"></div>
 		</div>
 		<div class="effects__img">
-			<div class="effects__img-inner" style="background-image:url(/assets/effects/3dicons/coffee-cup.png)"></div>
+			<div class="effects__img-inner" style="background-image:url(/assets/effects/code/terminal.png)"></div>
 		</div>
 		<div class="effects__img">
-			<div class="effects__img-inner" style="background-image:url(/assets/effects/3dicons/weather.png)"></div>
+			<div class="effects__img-inner" style="background-image:url(/assets/effects/code/typescript.png)"></div>
 		</div>
 	</div>
 </div>
@@ -45,53 +45,48 @@
 	import { preloadImages } from '/plugins/effects/utils.js';
 	import { ImageTrail } from '/plugins/effects/imageTrail.js';
 
-	// 图片数组定义
 	const images = [
-		'bezier.png',
-		'game.png',
-		'hourglass.png',
-		'image.png',
-		'rocket.png',
-		'compass.png',
-		'battery.png',
-		'lamp.png',
-		'coffee-cup.png',
-		'weather.png'
+		'github.png',
+		'go.png',
+		'js.png',
+		'nextjs.png',
+		'node.png',
+		'react.png',
+		'rust.png',
+		'terminal.png',
+		'typescript.png',
+		'vs.png'
 	];
 	const logoImages = [
-		'apple.png',
-		'blender.png',
-		'dribbble.png',
-		'figma.png',
-		'github.png',
-		'pin.png',
-		'react.png',
-		'sketch.png',
-		'vue.png',
-		'wechat.png'
+		'ai.png',
+		'branch.png',
+		'claude.png',
+		'gear.png',
+		'json.png',
+		'npm.png',
+		'pc.png',
+		'postgres.png',
+		'redis.png',
+		'sql.png'
 	];
 	const need3d = [
-		'01.png',
-		'02.png',
-		'03.png',
-		'04.png',
-		'05.png',
-		'06.png',
-		'07.png',
-		'08.png',
-		'09.png',
-		'10.png'
+		'ansible.png',
+		'aws.png',
+		'azure.png',
+		'cloud.png',
+		'docker.png',
+		'git.png',
+		'jenkins.png',
+		'kubernetis.png',
+		'linux.png',
+		'terraform.png'
 	];
-	// 定义事件，用于组件间通信
 	const EFFECT_CHANGE_EVENT = 'effect-state-changed';
 
-	// 获取当前效果状态
 	const getCurrentState = () => {
 		try {
-			// 检查是否过期
 			const expiry = localStorage.getItem('effectStateExpiry');
 			if (expiry && parseInt(expiry) < Date.now()) {
-				// 已过期，清除状态
 				localStorage.removeItem('effectState');
 				localStorage.removeItem('effectStateExpiry');
 				return 0;
@@ -105,20 +100,17 @@
 		}
 	};
 
-	// DOM 元素
 	const effects = document.querySelector('.effects');
 	const effectsImgs = document.querySelectorAll('.effects__img-inner');
 
-	// 更新图片
 	const changeImages = (imagesArr, folderPath) => {
 		effectsImgs.forEach((img, index) => {
 			img.style.backgroundImage = `url(${folderPath}${imagesArr[index]})`;
 		});
 	};
 
-	// 更新效果类名
 	const updateEffectsClass = (state) => {
-		effects.className = 'effects'; // 重置类名
+		effects.className = 'effects';
 		switch (state) {
 			case 0:
 				effects.classList.add('train-icons');
@@ -134,21 +126,20 @@
 		}
 	};
 
-	// 初始化状态
 	const initializeState = (state) => {
 		updateEffectsClass(state);
 		switch (state) {
 			case 0:
-				changeImages(images, '/assets/effects/3dicons/');
+				changeImages(images, '/assets/effects/code/');
 				break;
 			case 1:
-				changeImages(logoImages, '/assets/effects/logo/');
+				changeImages(logoImages, '/assets/effects/build/');
 				break;
 			case 2:
-				changeImages(need3d, '/assets/effects/need3d/');
+				changeImages(need3d, '/assets/effects/deploy/');
 				break;
 			default:
-				changeImages(images, '/assets/effects/3dicons/');
+				changeImages(images, '/assets/effects/code/');
 		}
 	};
 
@@ -244,7 +235,7 @@
 </style>
 <style>
 :root {
-	--img-width: 90px;
+	--img-width: 55px;
 	--img-ratio: 1/1;
 	--img-offset-x: 0px;
 	--img-offset-y: 00px;
