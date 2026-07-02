@@ -107,19 +107,19 @@
 		display: none!important;
 	}
 }
+
 .train-switch button {
     display: none;
-
     width: 72px;
     height: 34px;
 
-    border: 1px solid rgba(255,255,255,.12);
+    border: 1px solid var(--border);
     border-radius: 999px;
 
-    background: rgba(255,255,255,.04);
+    background: color-mix(in srgb, var(--color-100) 5%, transparent);
     backdrop-filter: blur(10px);
 
-    color: rgba(255,255,255,.85);
+    color: var(--color-100);
 
     font-size: 11px;
     font-weight: 600;
@@ -144,11 +144,11 @@
 .train-switch button:hover {
     transform: translateY(-2px);
 
-    color: white;
+    color: var(--color-100);
 
     border-color: rgba(var(--train-color-rgb), .45);
 
-    background: rgba(var(--train-color-rgb), .12);
+    background: rgba(var(--train-color-rgb), .16);
 
     box-shadow:
         0 6px 18px rgba(0,0,0,.18),
@@ -161,6 +161,44 @@
 
 .train-switch button:active {
     transform: translateY(0) scale(.96);
+}
+
+/* ---- Light mode overrides ---- */
+/* Adjust the selector below to match however your theme toggle marks light mode
+   (e.g. [data-theme="light"], .light, html.light-mode, etc.) */
+[data-theme="light"] .train-switch button {
+	border-color: rgba(0,0,0,.12);
+	background: rgba(0,0,0,.03);
+	color: rgba(0,0,0,.75);
+}
+
+[data-theme="light"] .train-switch button:hover {
+	color: black;
+	border-color: rgba(var(--train-color-rgb), .55);
+	background: rgba(var(--train-color-rgb), .10);
+
+	box-shadow:
+		0 6px 18px rgba(0,0,0,.08),
+		0 0 0 1px rgba(var(--train-color-rgb), .20);
+}
+
+/* Fallback for OS-level preference if you don't have a manual toggle */
+@media (prefers-color-scheme: light) {
+	.train-switch button:not([data-theme="dark"] *) {
+		border-color: rgba(0,0,0,.12);
+		background: rgba(0,0,0,.03);
+		color: rgba(0,0,0,.75);
+	}
+
+	.train-switch button:not([data-theme="dark"] *):hover {
+		color: black;
+		border-color: rgba(var(--train-color-rgb), .55);
+		background: rgba(var(--train-color-rgb), .10);
+
+		box-shadow:
+			0 6px 18px rgba(0,0,0,.08),
+			0 0 0 1px rgba(var(--train-color-rgb), .20);
+	}
 }
 
 .train-yellow{
