@@ -4,8 +4,8 @@ import { getCollection } from "astro:content";
 export async function GET(context) {
   const blog = await getCollection('blog');
   return rss({
-    title: 'Ricocc Blog Template Astro',
-    description: 'Astro Blog Template by Ricocc',
+    title: 'Suraj | Software Engineering Blog',
+    description: 'Articles about Full Stack Development, AI, Go, Linux, and Software Engineering.',
     site: context.site,
     items: blog.map((post) => ({
       title: post.data.title,
