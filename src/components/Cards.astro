@@ -26,7 +26,7 @@ const count = cards.length;
 <div class="section card">
     <div class="js-shuffle-sizer" >
         <div class="card-list my-shuffle-container" id="js-shuffle">
-            {cards.reverse().map((card) => (
+            {cards.map((card) => (
               <div class="card-item col-xs-1a col-md-2a col-lg-3a col-xxl-4a" data-groups={JSON.stringify(card.category)} data-date-created={card.date} data-title={card.title}>
                   <div class="card-header">
                       <div class="card-type type">
