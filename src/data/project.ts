@@ -1,41 +1,55 @@
 export interface ProjectItem {
-	id?: number; // 唯一标识符
+	id?: number; 
 	title: string
 	title_en?: string
 	description?: string
-	date?: string		//发布日期
-	detail?: string //详细页路径
-  	url?: string  //上线链接
+	date?: string		
+	detail?: string 
+  	url?: string  
 	tags?: string[]
 	cover?: string[]
 }
 export const projectItems: ProjectItem[] = [
 	{
-		title: "[示例] 3D 图标资产 - 情人节",
-    title_en: "Valentine's Day 3D Assets",
-		date: "2023-10-15",
-    detail: "/detail/free-3d-valentines-assets/",
-    url: "https://web.606design.art/landings/004-free-3d-valentines-assets/",
-    cover: ['free-3d-valentines-assets/01.jpg','free-3d-valentines-assets/02.jpg','free-3d-valentines-assets/03.jpg','free-3d-valentines-assets/04.jpg',],
-		tags: ['3D', 'WEB', 'ICON']
+		title: "Prezent",
+    title_en: "Generate presentation slides with AI.",
+		date: "2026-03-15",
+    detail: "https://github.com/iamsurajthakur/Prezent",
+    url: "https://github.com/iamsurajthakur/Prezent",
+    cover: ['prezent/home_prezent.png',
+		'prezent/dashboard_prezent.png',
+		'prezent/smart_slide.png'],
+		tags: ['AI', 'WEB', 'FULL STACK']
 	},
   {
-		title: "[示例] 待办清单网页版",
-    title_en: "Online Todo List",
-		date: "2023-10-15",
-    detail: "/detail/todo",
-    url: "https://www.ricocc.com/todo/",
-    cover: ['cover/cover-todo.jpg'],
-		tags: ['WEB', 'UI', 'TODO']
+		title: "Sustainify",
+    title_en: "Track your environmental impact.",
+		date: "2026-01-26",
+    detail: "https://github.com/iamsurajthakur/sustainable-living-tracker",
+    url: "https://github.com/iamsurajthakur/sustainable-living-tracker",
+    cover: ['sustainify/home.png',
+		'sustainify/dashboard.png',
+		'sustainify/eco-challenge.png'
+	],
+		tags: ['WEB', 'FULL STACK']
 	},
   {
-		title: "[示例] Tink 旅行生活日记",
-    title_en: "AI Landing Page",
-		date: "2023-10-15",
-		url: "https://travellife.zeabur.app/",
-		detail: "/detail/tinklife",
-    cover: ['travel/01.jpg','travel/02.jpg','travel/03.jpg','travel/04.jpg'],
-		tags: ['WEB', 'MOBILE']
+		title: "Brain Tumor Classifier",
+    title_en: "DL model for MRI brain tumor classification.",
+		date: "2026-03-31",
+		url: "https://github.com/iamsurajthakur/brain-tumor-classifier",
+		detail: "https://github.com/iamsurajthakur/brain-tumor-classifier",
+    cover: ['mri/cover-brain.jpg'],
+		tags: ['AI','PYTHON']
+	},
+	  {
+		title: "Finance API",
+    title_en: "Secure finance backend with RBAC.",
+		date: "2026-04-06",
+		url: "https://github.com/iamsurajthakur/Zorvyn",
+		detail: "https://github.com/iamsurajthakur/Zorvyn",
+    cover: ['mri/finance.jpeg'],
+		tags: ['BACKEND','NODE']
 	},
 
 ];
