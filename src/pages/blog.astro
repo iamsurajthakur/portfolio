@@ -1,36 +1,69 @@
 ---
-
-
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 import BlogPostLayout from "../layouts/BlogPostLayout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
-import PostPreview from '../components/PostPreview.astro';
-import {pageTag, pageDescription,blogTdk} from '../data/content';
+import PostPreview from "../components/PostPreview.astro";
+import { pageTag, pageDescription, blogTdk } from "../data/content";
 
-const projects = (await getCollection('blog')).sort(
+const projects = (await getCollection("blog")).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
 ---
 
 <BlogPostLayout
-		title={blogTdk.title || ''}
-		description = {blogTdk.description || ''}
-		keywords = {blogTdk.keywords || ''}
+	title={blogTdk.title || ""}
+	description={blogTdk.description || ""}
+	keywords={blogTdk.keywords || ""}
 >
 	<div class="post">
 		<main class="post-wrapper about">
 			<SectionHeader
-			tag={pageTag.blog}
-			description={pageDescription.blog}>
+				tag={pageTag.blog}
+				description={pageDescription.blog}
+			>
 				Blog
 			</SectionHeader>
 			<section class="border-top">
 				<div class="posts">
 					<div class="posts-container">
 						{
-							projects.map((project) => (
-								<PostPreview post={project} />
-							))
+							projects.length > 0 ? (
+								projects.map((project) => (
+									<PostPreview post={project} />
+								))
+							) : (
+								<div class="no-posts">
+									<div
+										class="no-posts-icon"
+										aria-hidden="true"
+									>
+										<svg
+											width="26"
+											height="26"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="1.3"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path d="M7 3.5h7l4 4V19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z" />
+											<path d="M14 3.5V8h4" />
+										</svg>
+									</div>
+									<h2>No posts yet</h2>
+									<p>
+										I'm heads-down building projects right
+										now. Write-ups will land here soon.
+									</p>
+									<div class="no-posts-actions">
+										<a href="/project" class="primary">
+											See what I'm building
+										</a>
+										<a href="/rss.xml">Subscribe via RSS</a>
+									</div>
+								</div>
+							)
 						}
 					</div>
 				</div>
@@ -38,3 +71,66 @@ const projects = (await getCollection('blog')).sort(
 		</main>
 	</div>
 </BlogPostLayout>
+
+<style>
+	.no-posts {
+		padding: 5rem 1.5rem 6rem;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.no-posts-icon {
+		width: 52px;
+		height: 52px;
+		display: grid;
+		place-items: center;
+		border-radius: 50%;
+		border: 1px dashed color-mix(in srgb, currentColor 25%, transparent);
+		color: color-mix(in srgb, currentColor 55%, transparent);
+		margin-bottom: 0.5rem;
+	}
+
+	.no-posts h2 {
+		margin: 0;
+	}
+
+	.no-posts p {
+		max-width: 420px;
+		margin: 0 auto;
+		opacity: 0.7;
+		line-height: 1.6;
+	}
+
+	.no-posts-actions {
+		display: flex;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: 0.75rem;
+	}
+
+	.no-posts-actions a {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.6rem 1.3rem;
+		border-radius: 999px;
+		font-size: 0.85rem;
+		text-decoration: none;
+		color: inherit;
+		border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+		transition:
+			border-color 0.2s ease,
+			background-color 0.2s ease;
+	}
+
+	.no-posts-actions a:hover {
+		border-color: color-mix(in srgb, currentColor 45%, transparent);
+	}
+
+	.no-posts-actions a.primary {
+		background: color-mix(in srgb, currentColor 8%, transparent);
+	}
+</style>
