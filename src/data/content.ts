@@ -122,8 +122,8 @@ interface PageDescription {
 export const pageDescription: PageDescription = {
 	index: 'I am Suraj Thakur, a software engineer focused on building scalable web applications, backend systems, and AI-powered products. Explore my projects or read about what I am learning',
 	project: "A collection of projects I've built, from full-stack web applications to backend services and AI-powered tools.",
-	about: 'Passionate about software engineering, backend development, distributed systems, and building practical products.',
-	blog: 'Articles, tutorials, and notes about software engineering, Go, web development, Linux, and the things I am learning.',
+	about: 'Passionate about software engineering, backend development, system design, and building practical products.',
+	blog: 'Articles, tutorials, and notes about software engineering, AI, web development, Linux, and the things I am learning.',
 }
 
 

@@ -11,33 +11,43 @@ const { href="javascript:(void)",target="self" } = Astro.props;
 
 <style>
 
-	 a {
+	a {
 		--btn-color: #101010;
 		--color--yellow: #f7d252;
-   		--color--dark-yellow: #ecba0e;
+		--color--dark-yellow: #ecba0e;
 		position: relative;
 		display: inline-flex;
 		place-content: center;
 		text-align: center;
-		padding: 1.125em 2em ;
-		color: var(--btn-color)!important;
+		padding: 1.125em 2em;
+		color: var(--btn-color) !important;
 		text-decoration: none;
 		line-height: 1.1;
-		border-radius: var(--radius-small);
+		border-radius: 36px;
 		overflow: hidden;
 		background: var(--color--yellow);
 		white-space: nowrap;
 		font-size: var(--text-sm);
 		font-weight: 600;
-		margin:0;
-		transition: all 0.35s;
-		border-radius:36px;
+		margin: 0;
 		min-width: 144px;
+		transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
 	}
- 	 a:hover{
-		border-color: var(--color--dark-yellow);
+
+	a:hover {
 		background-color: var(--color--dark-yellow);
-		box-shadow: 0 0 24px 11px rgba(247, 210, 82,.75);
+		transform: translateY(-2px);
+		box-shadow: 0 8px 16px -6px rgba(190, 150, 10, 0.45);
+	}
+
+	a:active {
+		transform: translateY(0);
+		box-shadow: 0 3px 8px -3px rgba(190, 150, 10, 0.4);
+	}
+
+	a:focus-visible {
+		outline: 2px solid var(--color--dark-yellow);
+		outline-offset: 3px;
 	}
 
 	/* Overlay for hover effects. */
@@ -46,11 +56,11 @@ const { href="javascript:(void)",target="self" } = Astro.props;
 		position: absolute;
 		inset: 0;
 		pointer-events: none;
-		transition: background-color var(--theme-transition);
+		transition: background-color var(--theme-transition, 0.25s ease);
 		mix-blend-mode: overlay;
 	}
 
-	a:focus::after,
+	a:focus-visible::after,
 	a:hover::after {
 		background-color: hsla(var(--color-999-basis), 0.3);
 	}
