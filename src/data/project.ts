@@ -11,6 +11,17 @@ export interface ProjectItem {
 }
 export const projectItems: ProjectItem[] = [
 	{
+		title: "Latency Lab",
+    title_en: "Load testing platform.",
+		date: "2026-07-28",
+    detail: "https://github.com/iamsurajthakur/Latency_Lab",
+    url: "https://github.com/iamsurajthakur/Latency_Lab",
+    cover: ['latency/dash.png',
+		'latency/home.png',
+		'latency/feature.png'],
+		tags: ['BACKEND', 'WEB', 'FULL STACK']
+	},
+	{
 		title: "Prezent",
     title_en: "Generate presentation slides with AI.",
 		date: "2026-03-15",
@@ -41,15 +52,6 @@ export const projectItems: ProjectItem[] = [
 		detail: "https://github.com/iamsurajthakur/brain-tumor-classifier",
     cover: ['mri/cover-brain.jpg'],
 		tags: ['AI','PYTHON']
-	},
-	  {
-		title: "Finance API",
-    title_en: "Secure finance backend with RBAC.",
-		date: "2026-04-06",
-		url: "https://github.com/iamsurajthakur/Zorvyn",
-		detail: "https://github.com/iamsurajthakur/Zorvyn",
-    cover: ['mri/finance.jpeg'],
-		tags: ['BACKEND','NODE']
 	},
 
 ];
